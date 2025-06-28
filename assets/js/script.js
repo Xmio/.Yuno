@@ -83,7 +83,6 @@ function setLanguage(lang) {
         var el = document.getElementById(id);
         if (el) el.textContent = translations[lang][id];
     });
-    document.getElementById('lang-switcher').value = lang;
     localStorage.setItem('yuno-lang', lang);
 }
 
