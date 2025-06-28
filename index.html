@@ -28,11 +28,18 @@
             <div class="nav-actions">
                 <button class="btn-secondary" id="login-btn">Já tenho uma conta</button>
                 <button class="btn-primary" id="start-btn">Começar</button>
-                <select id="lang-switcher" aria-label="Selecionar idioma">
-                    <option value="pt">🇧🇷 Português</option>
-                    <option value="en">🇺🇸 English</option>
-                    <option value="es">🇪🇸 Español</option>
-                </select>
+                <div class="lang-dropdown" id="lang-dropdown">
+                    <button class="lang-dropdown-toggle" id="lang-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        <span class="lang-flag" id="current-lang-flag">🇧🇷</span>
+                        <span class="lang-label" id="current-lang-label">Português</span>
+                        <span class="lang-arrow">▼</span>
+                    </button>
+                    <div class="lang-dropdown-menu" id="lang-dropdown-menu" role="menu">
+                        <button class="lang-option" data-lang="pt" role="menuitem"><span class="lang-flag">🇧🇷</span> Português</button>
+                        <button class="lang-option" data-lang="en" role="menuitem"><span class="lang-flag">🇺🇸</span> English</button>
+                        <button class="lang-option" data-lang="es" role="menuitem"><span class="lang-flag">🇪🇸</span> Español</button>
+                    </div>
+                </div>
             </div>
         </nav>
     </header>

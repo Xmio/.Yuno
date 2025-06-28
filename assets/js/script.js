@@ -380,11 +380,37 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar idioma
     var lang = detectLanguage();
     setLanguage(lang);
-    
-    // Adicionar evento ao seletor de idioma
-    document.getElementById('lang-switcher').addEventListener('change', function(e) {
-        setLanguage(e.target.value);
+    updateLangDropdownUI(lang);
+
+    // Dropdown customizado
+    const dropdown = document.getElementById('lang-dropdown');
+    const toggle = document.getElementById('lang-dropdown-toggle');
+    const menu = document.getElementById('lang-dropdown-menu');
+    toggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        dropdown.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', dropdown.classList.contains('open'));
     });
+    document.querySelectorAll('.lang-option').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            const selected = btn.dataset.lang;
+            setLanguage(selected);
+            updateLangDropdownUI(selected);
+            dropdown.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+        });
+    });
+    document.addEventListener('click', function(e) {
+        if (!dropdown.contains(e.target)) {
+            dropdown.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+    // Atualizar UI ao trocar idioma por outros meios
+    window.setLanguage = function(lang) {
+        setLanguage(lang);
+        updateLangDropdownUI(lang);
+    };
 });
 
 // Função para validar email (para futuras integrações)
@@ -403,5 +429,16 @@ function showLoading(button) {
         button.textContent = originalText;
         button.disabled = false;
     }, 2000);
+}
+
+// Dropdown customizado de idiomas
+function updateLangDropdownUI(lang) {
+    const flagMap = { pt: '🇧🇷', en: '🇺🇸', es: '🇪🇸' };
+    const labelMap = { pt: 'Português', en: 'English', es: 'Español' };
+    document.getElementById('current-lang-flag').textContent = flagMap[lang] || '🌐';
+    document.getElementById('current-lang-label').textContent = labelMap[lang] || 'Idioma';
+    document.querySelectorAll('.lang-option').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
 }
 
