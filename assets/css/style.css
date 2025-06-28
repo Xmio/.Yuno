@@ -42,17 +42,17 @@ body {
 .nav-brand {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
 }
 
 .logo {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
 }
 
 .brand-name {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: 600;
     color: #8A2BE2;
 }
@@ -542,6 +542,19 @@ body {
         gap: 15px;
     }
     
+    .nav-brand {
+        gap: 10px;
+    }
+    
+    .logo {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .brand-name {
+        font-size: 30px;
+    }
+    
     .nav-actions {
         width: 100%;
         justify-content: center;
@@ -606,6 +619,19 @@ body {
 }
 
 @media (max-width: 480px) {
+    .nav-brand {
+        gap: 8px;
+    }
+    
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .brand-name {
+        font-size: 28px;
+    }
+    
     .nav-actions {
         flex-direction: column;
         align-items: center;
