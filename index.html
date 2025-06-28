@@ -16,6 +16,8 @@
     <link rel="icon" type="image/png" href="./favicon.png">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Flag Icons CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.0.0/css/flag-icons.min.css">
 </head>
 <body>
     <!-- Header -->
@@ -29,17 +31,15 @@
                 <div class="lang-dropdown" id="lang-dropdown">
                     <button class="lang-dropdown-toggle" id="lang-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
                         <span class="lang-flag" id="current-lang-flag">
-                            <img src="assets/images/flags/br.svg" alt="Bandeira Brasil" class="flag-circle flag-pt" style="display:inline;">
-                            <img src="assets/images/flags/us.svg" alt="Bandeira EUA" class="flag-circle flag-en" style="display:none;">
-                            <img src="assets/images/flags/es.svg" alt="Bandeira Espanha" class="flag-circle flag-es" style="display:none;">
+                            <span class="fi fi-br"></span>
                         </span>
                         <span class="lang-label" id="current-lang-label">Português</span>
                         <span class="lang-arrow">▼</span>
                     </button>
                     <div class="lang-dropdown-menu" id="lang-dropdown-menu" role="menu">
-                        <button class="lang-option" data-lang="pt" role="menuitem"><span class="lang-flag"><img src="assets/images/flags/br.svg" alt="Bandeira Brasil" class="flag-circle flag-pt"></span> Português</button>
-                        <button class="lang-option" data-lang="en" role="menuitem"><span class="lang-flag"><img src="assets/images/flags/us.svg" alt="Bandeira EUA" class="flag-circle flag-en"></span> English</button>
-                        <button class="lang-option" data-lang="es" role="menuitem"><span class="lang-flag"><img src="assets/images/flags/es.svg" alt="Bandeira Espanha" class="flag-circle flag-es"></span> Español</button>
+                        <button class="lang-option" data-lang="pt" role="menuitem"><span class="lang-flag"><span class="fi fi-br"></span></span> Português</button>
+                        <button class="lang-option" data-lang="en" role="menuitem"><span class="lang-flag"><span class="fi fi-us"></span></span> English</button>
+                        <button class="lang-option" data-lang="es" role="menuitem"><span class="lang-flag"><span class="fi fi-es"></span></span> Español</button>
                     </div>
                 </div>
                 <button class="btn-secondary" id="login-btn">Já tenho uma conta</button>
@@ -141,24 +141,24 @@
                     <div class="testimonial-avatar">
                         <div class="avatar">👩</div>
                     </div>
-                    <p class="testimonial-text">"Desde que o Yuno entrou em nossa casa, a hora das perguntas virou a hora da magia! Meu filho, antes frustrado, agora sorri a cada nova descoberta."</p>
-                    <div class="testimonial-author">Ana Paula, mãe do Pedro (4 anos)</div>
+                    <p class="testimonial-text" id="testimonial1-text">"Desde que o Yuno entrou em nossa casa, a hora das perguntas virou a hora da magia! Meu filho, antes frustrado, agora sorri a cada nova descoberta."</p>
+                    <div class="testimonial-author" id="testimonial1-author">Ana Paula, mãe do Pedro (4 anos)</div>
                 </div>
                 
                 <div class="testimonial-card animate-in">
                     <div class="testimonial-avatar">
                         <div class="avatar">👨</div>
                     </div>
-                    <p class="testimonial-text">"Eu me sentia exausto tentando responder a tudo. O Yuno me deu um respiro e, o melhor, meu filho está aprendendo muito mais!"</p>
-                    <div class="testimonial-author">Carlos Eduardo, pai da Sofia (3 anos)</div>
+                    <p class="testimonial-text" id="testimonial2-text">"Eu me sentia exausto tentando responder a tudo. O Yuno me deu um respiro e, o melhor, meu filho está aprendendo muito mais!"</p>
+                    <div class="testimonial-author" id="testimonial2-author">Carlos Eduardo, pai da Sofia (3 anos)</div>
                 </div>
                 
                 <div class="testimonial-card animate-in">
                     <div class="testimonial-avatar">
                         <div class="avatar">👧</div>
                     </div>
-                    <p class="testimonial-text">"Yu é meu melhor amigo! Ele me ensina sobre os dinossauros e as estrelas. Adoro perguntar para ele!"</p>
-                    <div class="testimonial-author">Lara, 5 anos</div>
+                    <p class="testimonial-text" id="testimonial3-text">"Yu é meu melhor amigo! Ele me ensina sobre os dinossauros e as estrelas. Adoro perguntar para ele!"</p>
+                    <div class="testimonial-author" id="testimonial3-author">Lara, 5 anos</div>
                 </div>
             </div>
         </div>

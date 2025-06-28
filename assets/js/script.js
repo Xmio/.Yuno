@@ -19,6 +19,12 @@ const translations = {
         'feature4-title': 'aprendizado personalizado',
         'feature4-text': 'Combinando o melhor da IA e da ciência do desenvolvimento infantil, as respostas são personalizadas para ajudar seu filho a aprender no nível e ritmo ideais.',
         'testimonials-title': 'O que os pais estão dizendo',
+        'testimonial1-text': '"Desde que o Yuno entrou em nossa casa, a hora das perguntas virou a hora da magia! Meu filho, antes frustrado, agora sorri a cada nova descoberta."',
+        'testimonial1-author': 'Ana Paula, mãe do Pedro (4 anos)',
+        'testimonial2-text': '"Eu me sentia exausto tentando responder a tudo. O Yuno me deu um respiro e, o melhor, meu filho está aprendendo muito mais!"',
+        'testimonial2-author': 'Carlos Eduardo, pai da Sofia (3 anos)',
+        'testimonial3-text': '"Yu é meu melhor amigo! Ele me ensina sobre os dinossauros e as estrelas. Adoro perguntar para ele!"',
+        'testimonial3-author': 'Lara, 5 anos',
         'pricing-title': 'Comece sua jornada de descobertas',
         'pricing-btn': 'COMECE SUA AVENTURA GRATUITA',
         'pricing-note': '7 dias grátis, depois $99.99/ano',
@@ -43,6 +49,12 @@ const translations = {
         'feature4-title': 'personalized learning',
         'feature4-text': 'Combining the best of AI and child development science, answers are personalized to help your child learn at the ideal level and pace.',
         'testimonials-title': 'What parents are saying',
+        'testimonial1-text': '"Since Yuno came into our home, question time became magic time! My son, who was frustrated before, now smiles with each new discovery."',
+        'testimonial1-author': 'Ana Paula, Pedro\'s mom (4 years old)',
+        'testimonial2-text': '"I felt exhausted trying to answer everything. Yuno gave me a break and, best of all, my son is learning much more!"',
+        'testimonial2-author': 'Carlos Eduardo, Sofia\'s dad (3 years old)',
+        'testimonial3-text': '"Yu is my best friend! He teaches me about dinosaurs and stars. I love asking him questions!"',
+        'testimonial3-author': 'Lara, 5 years old',
         'pricing-title': 'Start your journey of discoveries',
         'pricing-btn': 'START YOUR FREE ADVENTURE',
         'pricing-note': '7 days free, then $99.99/year',
@@ -76,7 +88,6 @@ const translations = {
     }
 };
 
-// Funções de idioma no escopo global
 function setLanguage(lang) {
     if (!translations[lang]) lang = 'pt';
     Object.keys(translations[lang]).forEach(function(id) {
@@ -272,10 +283,10 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.appendChild(confetti);
             
             const animation = confetti.animate([
-                { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
-                { transform: `translateY(100vh) rotate(720deg)`, opacity: 0 }
+                { transform: 'translateY(0px) rotate(0deg)', opacity: 1 },
+                { transform: `translateY(${window.innerHeight + 100}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
             ], {
-                duration: Math.random() * 2000 + 1000,
+                duration: Math.random() * 3000 + 2000,
                 easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
             });
             
@@ -285,102 +296,99 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 
-    // Função para mostrar notificações estilo Duolingo
+    // Sistema de notificações
     function showNotification(message, type = 'info') {
         const notification = document.createElement('div');
-        notification.className = `notification ${type}`;
-        notification.innerHTML = `
-            <div class="notification-content">
-                <span class="notification-icon">${type === 'success' ? '🎉' : 'ℹ️'}</span>
-                <span class="notification-text">${message}</span>
-            </div>
-        `;
-        
+        notification.className = `notification notification-${type}`;
         notification.style.cssText = `
             position: fixed;
             top: 20px;
             right: 20px;
-            padding: 20px;
-            background: ${type === 'success' ? '#58cc02' : '#1cb0f6'};
+            background: ${type === 'success' ? '#58cc02' : type === 'error' ? '#ff4b4b' : '#1cb0f6'};
             color: white;
-            border-radius: 12px;
-            z-index: 10000;
-            opacity: 0;
-            transform: translateX(100%);
-            transition: all 0.3s ease;
-            font-weight: 600;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 10001;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
             max-width: 300px;
+            font-weight: 500;
         `;
         
+        notification.textContent = message;
         document.body.appendChild(notification);
         
+        // Animar entrada
         setTimeout(() => {
-            notification.style.opacity = '1';
             notification.style.transform = 'translateX(0)';
         }, 100);
         
+        // Remover após 4 segundos
         setTimeout(() => {
-            notification.style.opacity = '0';
-            notification.style.transform = 'translateX(100%)';
+            notification.style.transform = 'translateX(400px)';
             setTimeout(() => {
-                if (notification.parentNode) {
-                    notification.parentNode.removeChild(notification);
-                }
+                notification.remove();
             }, 300);
         }, 4000);
     }
 
-    // Adicionar classes CSS para animações
-    const style = document.createElement('style');
-    style.textContent = `
-        .animate-in {
-            animation: slideInUp 0.6s ease-out forwards;
-        }
+    // Efeitos de hover nos cards de depoimentos
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    testimonialCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px) scale(1.02)';
+        });
         
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .notification-content {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .notification-icon {
-            font-size: 20px;
-        }
-        
-        .notification-text {
-            font-size: 14px;
-        }
-        
-        .progress-fill {
-            transition: width 1s ease-out;
-        }
-        
-        .mascot-hero {
-            transition: transform 0.2s ease;
-        }
-        
-        button, .btn {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-    `;
-    document.head.appendChild(style);
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
 
-    // Inicializar idioma
-    var lang = detectLanguage();
-    setLanguage(lang);
-    updateLangDropdownUI(lang);
+    // Efeito de destaque no card de preço
+    const pricingCard = document.querySelector('.pricing-card');
+    if (pricingCard) {
+        pricingCard.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.02)';
+            this.style.boxShadow = '0 20px 40px rgba(88, 204, 2, 0.2)';
+        });
+        
+        pricingCard.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1)';
+            this.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
+        });
+    }
+
+    // Animação das estrelas
+    const stars = document.querySelectorAll('.star');
+    stars.forEach((star, index) => {
+        setInterval(() => {
+            star.style.transform = 'scale(1.2) rotate(10deg)';
+            setTimeout(() => {
+                star.style.transform = 'scale(1) rotate(0deg)';
+            }, 200);
+        }, 2000 + index * 500);
+    });
+
+    // Efeito de loading nos botões
+    function showLoading(button) {
+        const originalText = button.textContent;
+        button.textContent = 'Carregando...';
+        button.disabled = true;
+        
+        setTimeout(() => {
+            button.textContent = originalText;
+            button.disabled = false;
+        }, 2000);
+    }
+
+    // Aplicar loading nos botões de ação
+    const actionButtons = document.querySelectorAll('#start-btn, #hero-start-btn, #pricing-btn');
+    actionButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            showLoading(this);
+        });
+    });
 
     // Dropdown customizado
     const dropdown = document.getElementById('lang-dropdown');
@@ -406,45 +414,31 @@ document.addEventListener('DOMContentLoaded', function() {
             toggle.setAttribute('aria-expanded', 'false');
         }
     });
-    // Atualizar UI ao trocar idioma por outros meios
-    window.setLanguage = function(lang) {
-        setLanguage(lang);
-        updateLangDropdownUI(lang);
-    };
+    // Inicializar idioma
+    var lang = detectLanguage();
+    setLanguage(lang);
+    updateLangDropdownUI(lang);
+
 });
 
-// Função para validar email (para futuras integrações)
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-
-// Função para simular loading
-function showLoading(button) {
-    const originalText = button.textContent;
-    button.textContent = 'CARREGANDO...';
-    button.disabled = true;
-    
-    setTimeout(() => {
-        button.textContent = originalText;
-        button.disabled = false;
-    }, 2000);
-}
-
-// Dropdown customizado de idiomas
 function updateLangDropdownUI(lang) {
-    // Esconde todas as bandeiras
-    document.getElementById('flag-pt').style.display = 'none';
-    document.getElementById('flag-en').style.display = 'none';
-    document.getElementById('flag-es').style.display = 'none';
-    // Mostra a bandeira do idioma atual
-    if (lang === 'pt') document.getElementById('flag-pt').style.display = 'inline';
-    if (lang === 'en') document.getElementById('flag-en').style.display = 'inline';
-    if (lang === 'es') document.getElementById('flag-es').style.display = 'inline';
+    // Atualiza a flag e o label do dropdown
+    const flagMap = {
+        pt: 'fi-br',
+        en: 'fi-us',
+        es: 'fi-es'
+    };
     const labelMap = { pt: 'Português', en: 'English', es: 'Español' };
+    document.getElementById('current-lang-flag').innerHTML = `<span class="fi ${flagMap[lang]}"></span>`;
     document.getElementById('current-lang-label').textContent = labelMap[lang] || 'Idioma';
     document.querySelectorAll('.lang-option').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);
     });
+}
+
+// Funções utilitárias
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
 }
 
