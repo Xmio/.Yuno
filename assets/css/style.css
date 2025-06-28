@@ -620,64 +620,62 @@ body {
 }
 
 @media (max-width: 480px) {
+    .nav-actions, .lang-dropdown {
+        display: none !important;
+    }
     .nav {
-        padding: 8px 15px;
+        justify-content: center;
     }
-    
     .nav-brand {
-        gap: 6px;
+        margin: 0 auto;
+        justify-content: center;
+        width: 100%;
     }
-    
-    .logo {
-        width: 32px;
-        height: 32px;
-    }
-    
     .brand-name {
         font-size: 24px;
     }
-    
-    .nav-actions {
-        flex-direction: column;
+    /* Mobile compact header */
+    .mobile-header-compact {
+        display: flex;
         align-items: center;
-        gap: 6px;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1100;
+        background: #fff;
+        border-bottom: 2px solid #e5e5e5;
+        height: 56px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        padding: 0 12px;
     }
-    
-    .lang-dropdown-toggle {
-        padding: 6px 12px;
+    .mobile-header-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
+    }
+    .mobile-header-brand {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .mobile-logo {
+        width: 32px;
+        height: 32px;
+    }
+    .mobile-brand-name {
+        font-size: 22px;
+        font-weight: 600;
+        color: #8A2BE2;
+    }
+    .mobile-header-btn {
         font-size: 14px;
-        min-width: 120px;
-    }
-    
-    .btn-primary, .btn-secondary {
         padding: 8px 16px;
-        font-size: 12px;
-    }
-    
-    .hero {
-        padding: 100px 0 60px;
-        padding-top: 90px;
-    }
-    
-    .hero-title {
-        font-size: 28px;
-    }
-    
-    .feature-title {
-        font-size: 24px;
-    }
-    
-    .section-title {
-        font-size: 24px;
-    }
-    
-    .phone-mockup {
-        padding: 20px;
-    }
-    
-    .mascot-hero {
-        width: 150px;
-        height: 150px;
+        margin-left: auto;
     }
 }
 

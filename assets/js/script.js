@@ -419,6 +419,31 @@ document.addEventListener('DOMContentLoaded', function() {
     setLanguage(lang);
     updateLangDropdownUI(lang);
 
+    // Alternar header mobile ao rolar
+    function handleMobileHeader() {
+        const mainHeader = document.querySelector('.header');
+        const compactHeader = document.getElementById('mobile-header-compact');
+        if (window.innerWidth > 480) {
+            // Desktop/tablet: garantir que tudo está visível
+            if (mainHeader) mainHeader.style.display = '';
+            if (compactHeader) compactHeader.style.display = 'none';
+            return;
+        }
+        // Mobile
+        if (window.scrollY < 40) {
+            // Topo: mostrar header padrão centralizado
+            if (mainHeader) mainHeader.style.display = '';
+            if (compactHeader) compactHeader.style.display = 'none';
+        } else {
+            // Após scroll: mostrar header compacto (mascote + Yuno à esquerda, botão à direita)
+            if (mainHeader) mainHeader.style.display = 'none';
+            if (compactHeader) compactHeader.style.display = 'flex';
+        }
+    }
+    window.addEventListener('scroll', handleMobileHeader);
+    window.addEventListener('resize', handleMobileHeader);
+    document.addEventListener('DOMContentLoaded', handleMobileHeader);
+
 });
 
 function updateLangDropdownUI(lang) {
