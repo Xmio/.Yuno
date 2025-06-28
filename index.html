@@ -23,11 +23,16 @@
         <nav class="nav">
             <div class="nav-brand">
                 <img src="./assets/images/curioso_mascot.png" alt="Yuno" class="logo">
-                <span class="brand-name">Yuno</span>
+                <span class="brand-name" id="brand-name">Yuno</span>
             </div>
             <div class="nav-actions">
-                <button class="btn-secondary">Já tenho uma conta</button>
-                <button class="btn-primary">Começar</button>
+                <button class="btn-secondary" id="login-btn">Já tenho uma conta</button>
+                <button class="btn-primary" id="start-btn">Começar</button>
+                <select id="lang-switcher" aria-label="Selecionar idioma">
+                    <option value="pt">🇧🇷 Português</option>
+                    <option value="en">🇺🇸 English</option>
+                    <option value="es">🇪🇸 Español</option>
+                </select>
             </div>
         </nav>
     </header>
@@ -37,11 +42,11 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1 class="hero-title">A maneira gratuita, divertida e eficaz de despertar a curiosidade!</h1>
-                    <p class="hero-subtitle">Transforme cada pergunta do seu filho em uma aventura de descoberta com o Yuno - o app que responde na hora certa, do jeito certo.</p>
+                    <h1 class="hero-title" id="hero-title">A maneira gratuita, divertida e eficaz de despertar a curiosidade!</h1>
+                    <p class="hero-subtitle" id="hero-subtitle">Transforme cada pergunta do seu filho em uma aventura de descoberta com o Yuno - o app que responde na hora certa, do jeito certo.</p>
                     <div class="hero-buttons">
-                        <button class="btn-hero-primary">COMEÇAR AGORA</button>
-                        <button class="btn-hero-secondary">JÁ TENHO UMA CONTA</button>
+                        <button class="btn-hero-primary" id="hero-start-btn">COMEÇAR AGORA</button>
+                        <button class="btn-hero-secondary" id="hero-login-btn">JÁ TENHO UMA CONTA</button>
                     </div>
                 </div>
                 <div class="hero-illustration">
@@ -66,8 +71,8 @@
                     </div>
                 </div>
                 <div class="feature-content">
-                    <h2 class="feature-title">gratuito. divertido. eficaz.</h2>
-                    <p class="feature-text">Seu filho pergunta por voz, o Yu responde na hora! Com lições rápidas e respostas adaptadas à idade, cada pergunta vira uma nova descoberta enquanto desenvolve habilidades de comunicação e pensamento crítico.</p>
+                    <h2 class="feature-title" id="feature1-title">gratuito. divertido. eficaz.</h2>
+                    <p class="feature-text" id="feature1-text">Seu filho pergunta por voz, o Yu responde na hora! Com lições rápidas e respostas adaptadas à idade, cada pergunta vira uma nova descoberta enquanto desenvolve habilidades de comunicação e pensamento crítico.</p>
                 </div>
             </div>
 
@@ -78,8 +83,8 @@
                     </div>
                 </div>
                 <div class="feature-content">
-                    <h2 class="feature-title">baseado na ciência</h2>
-                    <p class="feature-text">Usamos uma combinação de métodos de ensino comprovados pela pesquisa e conteúdo encantador para criar respostas que efetivamente ensinam e estimulam a curiosidade natural das crianças!</p>
+                    <h2 class="feature-title" id="feature2-title">baseado na ciência</h2>
+                    <p class="feature-text" id="feature2-text">Usamos uma combinação de métodos de ensino comprovados pela pesquisa e conteúdo encantador para criar respostas que efetivamente ensinam e estimulam a curiosidade natural das crianças!</p>
                 </div>
             </div>
 
@@ -90,8 +95,8 @@
                     </div>
                 </div>
                 <div class="feature-content">
-                    <h2 class="feature-title">mantenha-se motivado</h2>
-                    <p class="feature-text">Tornamos fácil formar o hábito de aprender com recursos semelhantes a jogos, desafios divertidos e lembretes do nosso mascote amigável, Yu!</p>
+                    <h2 class="feature-title" id="feature3-title">mantenha-se motivado</h2>
+                    <p class="feature-text" id="feature3-text">Tornamos fácil formar o hábito de aprender com recursos semelhantes a jogos, desafios divertidos e lembretes do nosso mascote amigável, Yu!</p>
                 </div>
             </div>
 
@@ -109,8 +114,8 @@
                     </div>
                 </div>
                 <div class="feature-content">
-                    <h2 class="feature-title">aprendizado personalizado</h2>
-                    <p class="feature-text">Combinando o melhor da IA e da ciência do desenvolvimento infantil, as respostas são personalizadas para ajudar seu filho a aprender no nível e ritmo ideais.</p>
+                    <h2 class="feature-title" id="feature4-title">aprendizado personalizado</h2>
+                    <p class="feature-text" id="feature4-text">Combinando o melhor da IA e da ciência do desenvolvimento infantil, as respostas são personalizadas para ajudar seu filho a aprender no nível e ritmo ideais.</p>
                 </div>
             </div>
         </div>
@@ -119,7 +124,7 @@
     <!-- Testimonials Section -->
     <section class="testimonials">
         <div class="container">
-            <h2 class="section-title">O que os pais estão dizendo</h2>
+            <h2 class="section-title" id="testimonials-title">O que os pais estão dizendo</h2>
             <div class="testimonials-grid">
                 <div class="testimonial-card animate-in">
                     <div class="testimonial-avatar">
@@ -151,7 +156,7 @@
     <!-- Pricing Section -->
     <section class="pricing">
         <div class="container">
-            <h2 class="section-title">Comece sua jornada de descobertas</h2>
+            <h2 class="section-title" id="pricing-title">Comece sua jornada de descobertas</h2>
             <div class="pricing-card animate-in">
                 <div class="pricing-header">
                     <h3 class="pricing-title">Yuno Premium</h3>
@@ -168,8 +173,8 @@
                         <span class="discount">Economize 30%!</span>
                     </div>
                 </div>
-                <button class="btn-pricing">COMECE SUA AVENTURA GRATUITA</button>
-                <p class="pricing-note">7 dias grátis, depois $99.99/ano</p>
+                <button class="btn-pricing" id="pricing-btn">COMECE SUA AVENTURA GRATUITA</button>
+                <p class="pricing-note" id="pricing-note">7 dias grátis, depois $99.99/ano</p>
             </div>
         </div>
     </section>
@@ -180,12 +185,12 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <img src="./assets/images/curioso_mascot.png" alt="Yuno" class="footer-logo">
-                    <span class="footer-brand-name">Yuno</span>
+                    <span class="footer-brand-name" id="footer-brand-name">Yuno</span>
                 </div>
-                <p class="footer-text">Transformando curiosidade em conhecimento, uma pergunta de cada vez.</p>
+                <p class="footer-text" id="footer-text">Transformando curiosidade em conhecimento, uma pergunta de cada vez.</p>
             </div>
             <div class="footer-bottom">
-                <p>© 2025 Yuno. Todos os direitos reservados.</p>
+                <p id="footer-copyright">© 2025 Yuno. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
