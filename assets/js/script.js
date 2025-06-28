@@ -432,9 +432,15 @@ function showLoading(button) {
 
 // Dropdown customizado de idiomas
 function updateLangDropdownUI(lang) {
-    const flagMap = { pt: '🇧🇷', en: '🇺🇸', es: '🇪🇸' };
+    // Esconde todas as bandeiras
+    document.getElementById('flag-pt').style.display = 'none';
+    document.getElementById('flag-en').style.display = 'none';
+    document.getElementById('flag-es').style.display = 'none';
+    // Mostra a bandeira do idioma atual
+    if (lang === 'pt') document.getElementById('flag-pt').style.display = 'inline';
+    if (lang === 'en') document.getElementById('flag-en').style.display = 'inline';
+    if (lang === 'es') document.getElementById('flag-es').style.display = 'inline';
     const labelMap = { pt: 'Português', en: 'English', es: 'Español' };
-    document.getElementById('current-lang-flag').textContent = flagMap[lang] || '🌐';
     document.getElementById('current-lang-label').textContent = labelMap[lang] || 'Idioma';
     document.querySelectorAll('.lang-option').forEach(btn => {
         btn.classList.toggle('active', btn.dataset.lang === lang);

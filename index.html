@@ -26,20 +26,24 @@
                 <span class="brand-name" id="brand-name">Yuno</span>
             </div>
             <div class="nav-actions">
-                <button class="btn-secondary" id="login-btn">Já tenho uma conta</button>
-                <button class="btn-primary" id="start-btn">Começar</button>
                 <div class="lang-dropdown" id="lang-dropdown">
                     <button class="lang-dropdown-toggle" id="lang-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-                        <span class="lang-flag" id="current-lang-flag">🇧🇷</span>
+                        <span class="lang-flag" id="current-lang-flag">
+                            <svg id="flag-pt" width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline"><rect width="20" height="14" rx="3" fill="#F3F3F3"/><rect x="0" width="8" height="14" rx="3" fill="#B3C686"/></svg>
+                            <svg id="flag-en" width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none"><rect width="20" height="14" rx="3" fill="#F3F3F3"/><rect y="6" width="20" height="2" fill="#B3B3C6"/><rect x="9" width="2" height="14" fill="#B3B3C6"/></svg>
+                            <svg id="flag-es" width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none"><rect width="20" height="14" rx="3" fill="#F3F3F3"/><rect y="2" width="20" height="3" fill="#F6D6A6"/><rect y="9" width="20" height="3" fill="#F6D6A6"/></svg>
+                        </span>
                         <span class="lang-label" id="current-lang-label">Português</span>
                         <span class="lang-arrow">▼</span>
                     </button>
                     <div class="lang-dropdown-menu" id="lang-dropdown-menu" role="menu">
-                        <button class="lang-option" data-lang="pt" role="menuitem"><span class="lang-flag">🇧🇷</span> Português</button>
-                        <button class="lang-option" data-lang="en" role="menuitem"><span class="lang-flag">🇺🇸</span> English</button>
-                        <button class="lang-option" data-lang="es" role="menuitem"><span class="lang-flag">🇪🇸</span> Español</button>
+                        <button class="lang-option" data-lang="pt" role="menuitem"><span class="lang-flag"><svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="14" rx="3" fill="#F3F3F3"/><rect x="0" width="8" height="14" rx="3" fill="#B3C686"/></svg></span> Português</button>
+                        <button class="lang-option" data-lang="en" role="menuitem"><span class="lang-flag"><svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="14" rx="3" fill="#F3F3F3"/><rect y="6" width="20" height="2" fill="#B3B3C6"/><rect x="9" width="2" height="14" fill="#B3B3C6"/></svg></span> English</button>
+                        <button class="lang-option" data-lang="es" role="menuitem"><span class="lang-flag"><svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="20" height="14" rx="3" fill="#F3F3F3"/><rect y="2" width="20" height="3" fill="#F6D6A6"/><rect y="9" width="20" height="3" fill="#F6D6A6"/></svg></span> Español</button>
                     </div>
                 </div>
+                <button class="btn-secondary" id="login-btn">Já tenho uma conta</button>
+                <button class="btn-primary" id="start-btn">Começar</button>
             </div>
         </nav>
     </header>
