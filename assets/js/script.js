@@ -1,4 +1,104 @@
 // JavaScript para interatividade estilo Duolingo
+
+// Traduções dos principais textos
+const translations = {
+    pt: {
+        'brand-name': 'Yuno',
+        'login-btn': 'Já tenho uma conta',
+        'start-btn': 'Começar',
+        'hero-title': 'A maneira gratuita, divertida e eficaz de despertar a curiosidade!',
+        'hero-subtitle': 'Transforme cada pergunta do seu filho em uma aventura de descoberta com o Yuno - o app que responde na hora certa, do jeito certo.',
+        'hero-start-btn': 'COMEÇAR AGORA',
+        'hero-login-btn': 'JÁ TENHO UMA CONTA',
+        'feature1-title': 'gratuito. divertido. eficaz.',
+        'feature1-text': 'Seu filho pergunta por voz, o Yu responde na hora! Com lições rápidas e respostas adaptadas à idade, cada pergunta vira uma nova descoberta enquanto desenvolve habilidades de comunicação e pensamento crítico.',
+        'feature2-title': 'baseado na ciência',
+        'feature2-text': 'Usamos uma combinação de métodos de ensino comprovados pela pesquisa e conteúdo encantador para criar respostas que efetivamente ensinam e estimulam a curiosidade natural das crianças!',
+        'feature3-title': 'mantenha-se motivado',
+        'feature3-text': 'Tornamos fácil formar o hábito de aprender com recursos semelhantes a jogos, desafios divertidos e lembretes do nosso mascote amigável, Yu!',
+        'feature4-title': 'aprendizado personalizado',
+        'feature4-text': 'Combinando o melhor da IA e da ciência do desenvolvimento infantil, as respostas são personalizadas para ajudar seu filho a aprender no nível e ritmo ideais.',
+        'testimonials-title': 'O que os pais estão dizendo',
+        'pricing-title': 'Comece sua jornada de descobertas',
+        'pricing-btn': 'COMECE SUA AVENTURA GRATUITA',
+        'pricing-note': '7 dias grátis, depois $99.99/ano',
+        'footer-brand-name': 'Yuno',
+        'footer-text': 'Transformando curiosidade em conhecimento, uma pergunta de cada vez.',
+        'footer-copyright': '© 2025 Yuno. Todos os direitos reservados.'
+    },
+    en: {
+        'brand-name': 'Yuno',
+        'login-btn': 'Already have an account',
+        'start-btn': 'Start',
+        'hero-title': 'The free, fun and effective way to spark curiosity!',
+        'hero-subtitle': 'Turn every question from your child into a discovery adventure with Yuno - the app that answers at the right time, in the right way.',
+        'hero-start-btn': 'START NOW',
+        'hero-login-btn': 'I ALREADY HAVE AN ACCOUNT',
+        'feature1-title': 'free. fun. effective.',
+        'feature1-text': 'Your child asks by voice, Yu answers instantly! With quick lessons and age-adapted answers, every question becomes a new discovery while developing communication and critical thinking skills.',
+        'feature2-title': 'science-based',
+        'feature2-text': 'We use a combination of research-proven teaching methods and delightful content to create answers that effectively teach and stimulate children\'s natural curiosity!',
+        'feature3-title': 'stay motivated',
+        'feature3-text': 'We make it easy to build the habit of learning with game-like features, fun challenges, and reminders from our friendly mascot, Yu!',
+        'feature4-title': 'personalized learning',
+        'feature4-text': 'Combining the best of AI and child development science, answers are personalized to help your child learn at the ideal level and pace.',
+        'testimonials-title': 'What parents are saying',
+        'pricing-title': 'Start your journey of discoveries',
+        'pricing-btn': 'START YOUR FREE ADVENTURE',
+        'pricing-note': '7 days free, then $99.99/year',
+        'footer-brand-name': 'Yuno',
+        'footer-text': 'Turning curiosity into knowledge, one question at a time.',
+        'footer-copyright': '© 2025 Yuno. All rights reserved.'
+    },
+    es: {
+        'brand-name': 'Yuno',
+        'login-btn': 'Ya tengo una cuenta',
+        'start-btn': 'Comenzar',
+        'hero-title': '¡La forma gratuita, divertida y eficaz de despertar la curiosidad!',
+        'hero-subtitle': 'Convierte cada pregunta de tu hijo en una aventura de descubrimiento con Yuno: la app que responde en el momento y de la manera correcta.',
+        'hero-start-btn': 'EMPEZAR AHORA',
+        'hero-login-btn': 'YA TENGO UNA CUENTA',
+        'feature1-title': 'gratis. divertido. eficaz.',
+        'feature1-text': '¡Tu hijo pregunta por voz y Yu responde al instante! Con lecciones rápidas y respuestas adaptadas a la edad, cada pregunta se convierte en un nuevo descubrimiento mientras desarrolla habilidades de comunicación y pensamiento crítico.',
+        'feature2-title': 'basado en la ciencia',
+        'feature2-text': '¡Usamos una combinación de métodos de enseñanza comprobados por la investigación y contenido encantador para crear respuestas que realmente enseñan y estimulan la curiosidad natural de los niños!',
+        'feature3-title': 'mantente motivado',
+        'feature3-text': 'Facilitamos la formación del hábito de aprender con funciones similares a juegos, desafíos divertidos y recordatorios de nuestro amigable mascota, Yu!',
+        'feature4-title': 'aprendizaje personalizado',
+        'feature4-text': 'Combinando lo mejor de la IA y la ciencia del desarrollo infantil, las respuestas se personalizan para ayudar a tu hijo a aprender al nivel y ritmo ideales.',
+        'testimonials-title': 'Lo que dicen los padres',
+        'pricing-title': 'Comienza tu viaje de descubrimientos',
+        'pricing-btn': 'EMPIEZA TU AVENTURA GRATIS',
+        'pricing-note': '7 días gratis, luego $99.99/año',
+        'footer-brand-name': 'Yuno',
+        'footer-text': 'Transformando la curiosidad en conocimiento, una pregunta a la vez.',
+        'footer-copyright': '© 2025 Yuno. Todos los derechos reservados.'
+    }
+};
+
+// Funções de idioma no escopo global
+function setLanguage(lang) {
+    if (!translations[lang]) lang = 'pt';
+    Object.keys(translations[lang]).forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.textContent = translations[lang][id];
+    });
+    document.getElementById('lang-switcher').value = lang;
+    localStorage.setItem('yuno-lang', lang);
+}
+
+function detectLanguage() {
+    // 1. Preferência salva
+    var saved = localStorage.getItem('yuno-lang');
+    if (saved && translations[saved]) return saved;
+    // 2. Idioma do navegador
+    var nav = navigator.languages ? navigator.languages[0] : navigator.language;
+    if (nav.startsWith('pt')) return 'pt';
+    if (nav.startsWith('es')) return 'es';
+    if (nav.startsWith('en')) return 'en';
+    return 'pt';
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     
     // Smooth scrolling para links internos
@@ -277,106 +377,11 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 
-    // Traduções dos principais textos
-    const translations = {
-        pt: {
-            'brand-name': 'Yuno',
-            'login-btn': 'Já tenho uma conta',
-            'start-btn': 'Começar',
-            'hero-title': 'A maneira gratuita, divertida e eficaz de despertar a curiosidade!',
-            'hero-subtitle': 'Transforme cada pergunta do seu filho em uma aventura de descoberta com o Yuno - o app que responde na hora certa, do jeito certo.',
-            'hero-start-btn': 'COMEÇAR AGORA',
-            'hero-login-btn': 'JÁ TENHO UMA CONTA',
-            'feature1-title': 'gratuito. divertido. eficaz.',
-            'feature1-text': 'Seu filho pergunta por voz, o Yu responde na hora! Com lições rápidas e respostas adaptadas à idade, cada pergunta vira uma nova descoberta enquanto desenvolve habilidades de comunicação e pensamento crítico.',
-            'feature2-title': 'baseado na ciência',
-            'feature2-text': 'Usamos uma combinação de métodos de ensino comprovados pela pesquisa e conteúdo encantador para criar respostas que efetivamente ensinam e estimulam a curiosidade natural das crianças!',
-            'feature3-title': 'mantenha-se motivado',
-            'feature3-text': 'Tornamos fácil formar o hábito de aprender com recursos semelhantes a jogos, desafios divertidos e lembretes do nosso mascote amigável, Yu!',
-            'feature4-title': 'aprendizado personalizado',
-            'feature4-text': 'Combinando o melhor da IA e da ciência do desenvolvimento infantil, as respostas são personalizadas para ajudar seu filho a aprender no nível e ritmo ideais.',
-            'testimonials-title': 'O que os pais estão dizendo',
-            'pricing-title': 'Comece sua jornada de descobertas',
-            'pricing-btn': 'COMECE SUA AVENTURA GRATUITA',
-            'pricing-note': '7 dias grátis, depois $99.99/ano',
-            'footer-brand-name': 'Yuno',
-            'footer-text': 'Transformando curiosidade em conhecimento, uma pergunta de cada vez.',
-            'footer-copyright': '© 2025 Yuno. Todos os direitos reservados.'
-        },
-        en: {
-            'brand-name': 'Yuno',
-            'login-btn': 'Already have an account',
-            'start-btn': 'Start',
-            'hero-title': 'The free, fun and effective way to spark curiosity!',
-            'hero-subtitle': 'Turn every question from your child into a discovery adventure with Yuno - the app that answers at the right time, in the right way.',
-            'hero-start-btn': 'START NOW',
-            'hero-login-btn': 'I ALREADY HAVE AN ACCOUNT',
-            'feature1-title': 'free. fun. effective.',
-            'feature1-text': 'Your child asks by voice, Yu answers instantly! With quick lessons and age-adapted answers, every question becomes a new discovery while developing communication and critical thinking skills.',
-            'feature2-title': 'science-based',
-            'feature2-text': 'We use a combination of research-proven teaching methods and delightful content to create answers that effectively teach and stimulate children's natural curiosity!',
-            'feature3-title': 'stay motivated',
-            'feature3-text': 'We make it easy to build the habit of learning with game-like features, fun challenges, and reminders from our friendly mascot, Yu!',
-            'feature4-title': 'personalized learning',
-            'feature4-text': 'Combining the best of AI and child development science, answers are personalized to help your child learn at the ideal level and pace.',
-            'testimonials-title': 'What parents are saying',
-            'pricing-title': 'Start your journey of discoveries',
-            'pricing-btn': 'START YOUR FREE ADVENTURE',
-            'pricing-note': '7 days free, then $99.99/year',
-            'footer-brand-name': 'Yuno',
-            'footer-text': 'Turning curiosity into knowledge, one question at a time.',
-            'footer-copyright': '© 2025 Yuno. All rights reserved.'
-        },
-        es: {
-            'brand-name': 'Yuno',
-            'login-btn': 'Ya tengo una cuenta',
-            'start-btn': 'Comenzar',
-            'hero-title': '¡La forma gratuita, divertida y eficaz de despertar la curiosidad!',
-            'hero-subtitle': 'Convierte cada pregunta de tu hijo en una aventura de descubrimiento con Yuno: la app que responde en el momento y de la manera correcta.',
-            'hero-start-btn': 'EMPEZAR AHORA',
-            'hero-login-btn': 'YA TENGO UNA CUENTA',
-            'feature1-title': 'gratis. divertido. eficaz.',
-            'feature1-text': '¡Tu hijo pregunta por voz y Yu responde al instante! Con lecciones rápidas y respuestas adaptadas a la edad, cada pregunta se convierte en un nuevo descubrimiento mientras desarrolla habilidades de comunicación y pensamiento crítico.',
-            'feature2-title': 'basado en la ciencia',
-            'feature2-text': '¡Usamos una combinación de métodos de enseñanza comprobados por la investigación y contenido encantador para crear respuestas que realmente enseñan y estimulan la curiosidad natural de los niños!',
-            'feature3-title': 'mantente motivado',
-            'feature3-text': 'Facilitamos la formación del hábito de aprender con funciones similares a juegos, desafíos divertidos y recordatorios de nuestro amigable mascota, Yu!',
-            'feature4-title': 'aprendizaje personalizado',
-            'feature4-text': 'Combinando lo mejor de la IA y la ciencia del desarrollo infantil, las respuestas se personalizan para ayudar a tu hijo a aprender al nivel y ritmo ideales.',
-            'testimonials-title': 'Lo que dicen los padres',
-            'pricing-title': 'Comienza tu viaje de descubrimientos',
-            'pricing-btn': 'EMPIEZA TU AVENTURA GRATIS',
-            'pricing-note': '7 días gratis, luego $99.99/año',
-            'footer-brand-name': 'Yuno',
-            'footer-text': 'Transformando la curiosidad en conocimiento, una pregunta a la vez.',
-            'footer-copyright': '© 2025 Yuno. Todos los derechos reservados.'
-        }
-    };
-
-    function setLanguage(lang) {
-        if (!translations[lang]) lang = 'pt';
-        Object.keys(translations[lang]).forEach(function(id) {
-            var el = document.getElementById(id);
-            if (el) el.textContent = translations[lang][id];
-        });
-        document.getElementById('lang-switcher').value = lang;
-        localStorage.setItem('yuno-lang', lang);
-    }
-
-    function detectLanguage() {
-        // 1. Preferência salva
-        var saved = localStorage.getItem('yuno-lang');
-        if (saved && translations[saved]) return saved;
-        // 2. Idioma do navegador
-        var nav = navigator.languages ? navigator.languages[0] : navigator.language;
-        if (nav.startsWith('pt')) return 'pt';
-        if (nav.startsWith('es')) return 'es';
-        if (nav.startsWith('en')) return 'en';
-        return 'pt';
-    }
-
+    // Inicializar idioma
     var lang = detectLanguage();
     setLanguage(lang);
+    
+    // Adicionar evento ao seletor de idioma
     document.getElementById('lang-switcher').addEventListener('change', function(e) {
         setLanguage(e.target.value);
     });
