@@ -433,13 +433,13 @@ function showLoading(button) {
 // Dropdown customizado de idiomas
 function updateLangDropdownUI(lang) {
     // Esconde todas as bandeiras
-    document.getElementById('flag-pt').style.display = 'none';
-    document.getElementById('flag-en').style.display = 'none';
-    document.getElementById('flag-es').style.display = 'none';
+    document.querySelectorAll('.flag-pt').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.flag-en').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.flag-es').forEach(el => el.style.display = 'none');
     // Mostra a bandeira do idioma atual
-    if (lang === 'pt') document.getElementById('flag-pt').style.display = 'inline';
-    if (lang === 'en') document.getElementById('flag-en').style.display = 'inline';
-    if (lang === 'es') document.getElementById('flag-es').style.display = 'inline';
+    if (lang === 'pt') document.querySelectorAll('.flag-pt').forEach(el => el.style.display = 'inline');
+    if (lang === 'en') document.querySelectorAll('.flag-en').forEach(el => el.style.display = 'inline');
+    if (lang === 'es') document.querySelectorAll('.flag-es').forEach(el => el.style.display = 'inline');
     const labelMap = { pt: 'Português', en: 'English', es: 'Español' };
     document.getElementById('current-lang-label').textContent = labelMap[lang] || 'Idioma';
     document.querySelectorAll('.lang-option').forEach(btn => {
