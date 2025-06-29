@@ -1,5 +1,9 @@
 // JavaScript para interatividade estilo Duolingo
 
+// Variável global para controlar o efeito de digitação
+let isTypewriterRunning = false;
+let hasLanguageBeenSet = false;
+
 // Traduções dos principais textos
 const translations = {
     pt: {
@@ -11,6 +15,7 @@ const translations = {
         'hero-subtitle': 'Transforme cada pergunta do seu filho em uma aventura de descoberta com o Yuno - o app que responde na hora certa, do jeito certo.',
         'hero-start-btn': 'COMEÇAR AGORA',
         'hero-login-btn': 'JÁ TENHO UMA CONTA',
+        'speech-bubble-text': '"Por que o céu é azul?"',
         'feature1-title': 'gratuito. divertido. eficaz.',
         'feature1-text': 'Seu filho pergunta por voz, o Yu responde na hora! Com lições rápidas e respostas adaptadas à idade, cada pergunta vira uma nova descoberta enquanto desenvolve habilidades de comunicação e pensamento crítico.',
         'feature2-title': 'baseado na ciência',
@@ -39,9 +44,19 @@ const translations = {
         'plan-super-title': 'Super Curioso',
         'plan-super-subtitle': 'Para crianças super curiosas',
         'plan-super-questions': '240 perguntas/mês',
+        'plan-essential-monthly-period': '/mês',
+        'plan-essential-annual-period': '/mês',
+        'plan-explorer-monthly-period': '/mês',
+        'plan-explorer-annual-period': '/mês',
+        'plan-super-monthly-period': '/mês',
+        'plan-super-annual-period': '/mês',
+        'plan-essential-discount': '30% OFF',
+        'plan-explorer-discount': '~33% OFF',
+        'plan-super-discount': '~33% OFF',
         'plan-essential-btn': 'ESCOLHER ESSENCIAL',
         'plan-explorer-btn': 'ESCOLHER EXPLORADOR',
         'plan-super-btn': 'ESCOLHER SUPER CURIOSO',
+        'welcome-notification': '🎉 Bem-vindo ao Yuno! Prepare-se para uma jornada incrível de descobertas!',
         'footer-brand-name': 'Yuno',
         'footer-text': 'Transformando curiosidade em conhecimento, uma pergunta de cada vez.',
         'footer-copyright': '© 2025 Yuno. Todos os direitos reservados.'
@@ -55,6 +70,7 @@ const translations = {
         'hero-subtitle': 'Turn every question from your child into a discovery adventure with Yuno - the app that answers at the right time, in the right way.',
         'hero-start-btn': 'START NOW',
         'hero-login-btn': 'I ALREADY HAVE AN ACCOUNT',
+        'speech-bubble-text': '"Why is the sky blue?"',
         'feature1-title': 'free. fun. effective.',
         'feature1-text': 'Your child asks by voice, Yu answers instantly! With quick lessons and age-adapted answers, every question becomes a new discovery while developing communication and critical thinking skills.',
         'feature2-title': 'science-based',
@@ -83,9 +99,19 @@ const translations = {
         'plan-super-title': 'Super Curious',
         'plan-super-subtitle': 'For super curious children',
         'plan-super-questions': '240 questions/month',
+        'plan-essential-monthly-period': '/month',
+        'plan-essential-annual-period': '/month',
+        'plan-explorer-monthly-period': '/month',
+        'plan-explorer-annual-period': '/month',
+        'plan-super-monthly-period': '/month',
+        'plan-super-annual-period': '/month',
+        'plan-essential-discount': '30% OFF',
+        'plan-explorer-discount': '~33% OFF',
+        'plan-super-discount': '~33% OFF',
         'plan-essential-btn': 'CHOOSE ESSENTIAL',
         'plan-explorer-btn': 'CHOOSE EXPLORER',
         'plan-super-btn': 'CHOOSE SUPER CURIOUS',
+        'welcome-notification': '🎉 Welcome to Yuno! Get ready for an incredible journey of discoveries!',
         'footer-brand-name': 'Yuno',
         'footer-text': 'Turning curiosity into knowledge, one question at a time.',
         'footer-copyright': '© 2025 Yuno. All rights reserved.'
@@ -99,6 +125,7 @@ const translations = {
         'hero-subtitle': 'Convierte cada pregunta de tu hijo en una aventura de descubrimiento con Yuno: la app que responde en el momento y de la manera correcta.',
         'hero-start-btn': 'EMPEZAR AHORA',
         'hero-login-btn': 'YA TENGO UNA CUENTA',
+        'speech-bubble-text': '"¿Por qué el cielo es azul?"',
         'feature1-title': 'gratis. divertido. eficaz.',
         'feature1-text': '¡Tu hijo pregunta por voz y Yu responde al instante! Con lecciones rápidas y respuestas adaptadas a la edad, cada pregunta se convierte en un nuevo descubrimiento mientras desarrolla habilidades de comunicación y pensamiento crítico.',
         'feature2-title': 'basado en la ciencia',
@@ -127,9 +154,19 @@ const translations = {
         'plan-super-title': 'Super Curioso',
         'plan-super-subtitle': 'Para niños super curiosos',
         'plan-super-questions': '240 preguntas/mes',
+        'plan-essential-monthly-period': '/mes',
+        'plan-essential-annual-period': '/mes',
+        'plan-explorer-monthly-period': '/mes',
+        'plan-explorer-annual-period': '/mes',
+        'plan-super-monthly-period': '/mes',
+        'plan-super-annual-period': '/mes',
+        'plan-essential-discount': '30% OFF',
+        'plan-explorer-discount': '~33% OFF',
+        'plan-super-discount': '~33% OFF',
         'plan-essential-btn': 'ELEGIR ESENCIAL',
         'plan-explorer-btn': 'ELEGIR EXPLORADOR',
         'plan-super-btn': 'ELEGIR SUPER CURIOSO',
+        'welcome-notification': '🎉 ¡Bienvenido a Yuno! ¡Prepárate para un increíble viaje de descubrimientos!',
         'footer-brand-name': 'Yuno',
         'footer-text': 'Transformando la curiosidad en conocimiento, una pregunta a la vez.',
         'footer-copyright': '© 2025 Yuno. Todos los derechos reservados.'
@@ -144,6 +181,37 @@ function setLanguage(lang) {
     });
     localStorage.setItem('yuno-lang', lang);
     updateLangDropdownUI(lang);
+    hasLanguageBeenSet = true;
+    
+    // Restart typewriter effect for speech bubble with better control
+    const speechBubble = document.querySelector('.speech-bubble p');
+    if (speechBubble && !isTypewriterRunning) {
+        isTypewriterRunning = true;
+        const text = translations[lang]['speech-bubble-text'];
+        
+        // Limpar completamente o conteúdo
+        speechBubble.textContent = '';
+        
+        // Aguardar um pouco antes de começar a digitação
+        setTimeout(() => {
+            // Verificar se ainda não há conflito
+            if (speechBubble.textContent === '' && isTypewriterRunning) {
+                let i = 0;
+                const typeWriter = () => {
+                    if (i < text.length && isTypewriterRunning) {
+                        speechBubble.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 100);
+                    } else {
+                        isTypewriterRunning = false;
+                    }
+                };
+                typeWriter();
+            } else {
+                isTypewriterRunning = false;
+            }
+        }, 500);
+    }
 }
 
 function detectLanguage() {
@@ -224,7 +292,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Simular ação (aqui você integraria com um sistema real)
             setTimeout(() => {
-                showNotification('🎉 Bem-vindo ao Yuno! Prepare-se para uma jornada incrível de descobertas!', 'success');
+                const currentLang = localStorage.getItem('yuno-lang') || 'pt';
+                showNotification(translations[currentLang]['welcome-notification'], 'success');
             }, 300);
         });
     });
@@ -264,20 +333,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Efeito de digitação na speech bubble
     const speechBubble = document.querySelector('.speech-bubble p');
-    if (speechBubble) {
-        const text = speechBubble.textContent;
+    if (speechBubble && !isTypewriterRunning && !hasLanguageBeenSet) {
+        isTypewriterRunning = true;
+        const currentLang = localStorage.getItem('yuno-lang') || 'pt';
+        const text = translations[currentLang]['speech-bubble-text'];
+        
+        // Limpar completamente o conteúdo e aguardar
         speechBubble.textContent = '';
         
-        let i = 0;
-        const typeWriter = () => {
-            if (i < text.length) {
-                speechBubble.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
+        // Aguardar um pouco mais para garantir que não há conflitos
+        setTimeout(() => {
+            // Verificar novamente se não há conflito
+            if (speechBubble.textContent === '' && !hasLanguageBeenSet) {
+                let i = 0;
+                const typeWriter = () => {
+                    if (i < text.length && !hasLanguageBeenSet) {
+                        speechBubble.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 100);
+                    } else {
+                        isTypewriterRunning = false;
+                    }
+                };
+                typeWriter();
+            } else {
+                isTypewriterRunning = false;
             }
-        };
-        
-        setTimeout(typeWriter, 1000);
+        }, 2000);
     }
 
     // Parallax suave no hero
