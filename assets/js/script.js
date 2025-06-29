@@ -27,8 +27,21 @@ const translations = {
         'testimonial3-text': '"Yu é meu melhor amigo! Ele me ensina sobre os dinossauros e as estrelas. Adoro perguntar para ele!"',
         'testimonial3-author': 'Lara, 5 anos',
         'pricing-title': 'Comece sua jornada de descobertas',
-        'pricing-btn': 'COMECE SUA AVENTURA GRATUITA',
-        'pricing-note': '7 dias grátis, depois $99.99/ano',
+        'billing-monthly': 'Mensal',
+        'billing-annual': 'Anual',
+        'pricing-recommended': 'Recomendado',
+        'plan-essential-title': 'Essencial',
+        'plan-essential-subtitle': 'Para crianças descobrindo o mundo',
+        'plan-essential-questions': '60 perguntas/mês',
+        'plan-explorer-title': 'Explorador',
+        'plan-explorer-subtitle': 'Para crianças muito curiosas',
+        'plan-explorer-questions': '120 perguntas/mês',
+        'plan-super-title': 'Super Curioso',
+        'plan-super-subtitle': 'Para crianças super curiosas',
+        'plan-super-questions': '240 perguntas/mês',
+        'plan-essential-btn': 'ESCOLHER ESSENCIAL',
+        'plan-explorer-btn': 'ESCOLHER EXPLORADOR',
+        'plan-super-btn': 'ESCOLHER SUPER CURIOSO',
         'footer-brand-name': 'Yuno',
         'footer-text': 'Transformando curiosidade em conhecimento, uma pergunta de cada vez.',
         'footer-copyright': '© 2025 Yuno. Todos os direitos reservados.'
@@ -58,8 +71,21 @@ const translations = {
         'testimonial3-text': '"Yu is my best friend! He teaches me about dinosaurs and stars. I love asking him questions!"',
         'testimonial3-author': 'Lara, 5 years old',
         'pricing-title': 'Start your journey of discoveries',
-        'pricing-btn': 'START YOUR FREE ADVENTURE',
-        'pricing-note': '7 days free, then $99.99/year',
+        'billing-monthly': 'Monthly',
+        'billing-annual': 'Annual',
+        'pricing-recommended': 'Recommended',
+        'plan-essential-title': 'Essential',
+        'plan-essential-subtitle': 'For children discovering the world',
+        'plan-essential-questions': '60 questions/month',
+        'plan-explorer-title': 'Explorer',
+        'plan-explorer-subtitle': 'For very curious children',
+        'plan-explorer-questions': '120 questions/month',
+        'plan-super-title': 'Super Curious',
+        'plan-super-subtitle': 'For super curious children',
+        'plan-super-questions': '240 questions/month',
+        'plan-essential-btn': 'CHOOSE ESSENTIAL',
+        'plan-explorer-btn': 'CHOOSE EXPLORER',
+        'plan-super-btn': 'CHOOSE SUPER CURIOUS',
         'footer-brand-name': 'Yuno',
         'footer-text': 'Turning curiosity into knowledge, one question at a time.',
         'footer-copyright': '© 2025 Yuno. All rights reserved.'
@@ -89,8 +115,21 @@ const translations = {
         'testimonial3-text': '"¡Yu es mi mejor amigo! Me enseña sobre dinosaurios y estrellas. ¡Me encanta hacerle preguntas!"',
         'testimonial3-author': 'Lara, 5 años',
         'pricing-title': 'Comienza tu viaje de descubrimientos',
-        'pricing-btn': 'EMPIEZA TU AVENTURA GRATIS',
-        'pricing-note': '7 días gratis, luego $99.99/año',
+        'billing-monthly': 'Mensual',
+        'billing-annual': 'Anual',
+        'pricing-recommended': 'Recomendado',
+        'plan-essential-title': 'Esencial',
+        'plan-essential-subtitle': 'Para niños descubriendo el mundo',
+        'plan-essential-questions': '60 preguntas/mes',
+        'plan-explorer-title': 'Explorador',
+        'plan-explorer-subtitle': 'Para niños muy curiosos',
+        'plan-explorer-questions': '120 preguntas/mes',
+        'plan-super-title': 'Super Curioso',
+        'plan-super-subtitle': 'Para niños super curiosos',
+        'plan-super-questions': '240 preguntas/mes',
+        'plan-essential-btn': 'ELEGIR ESENCIAL',
+        'plan-explorer-btn': 'ELEGIR EXPLORADOR',
+        'plan-super-btn': 'ELEGIR SUPER CURIOSO',
         'footer-brand-name': 'Yuno',
         'footer-text': 'Transformando la curiosidad en conocimiento, una pregunta a la vez.',
         'footer-copyright': '© 2025 Yuno. Todos los derechos reservados.'
@@ -272,7 +311,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Função para criar confete
     function createConfetti() {
-        const colors = ['#58cc02', '#1cb0f6', '#ff9600', '#ff4b4b', '#ce82ff'];
+        const colors = ['#58cc02', '#1cb0f6', '#26b547', '#ff4b4b', '#ce82ff'];
         const confettiCount = 50;
         
         for (let i = 0; i < confettiCount; i++) {
@@ -392,7 +431,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Aplicar loading nos botões de ação
-    const actionButtons = document.querySelectorAll('#start-btn, #hero-start-btn, #pricing-btn');
+    const actionButtons = document.querySelectorAll('#start-btn, #hero-start-btn, #plan-essential-btn, #plan-explorer-btn, #plan-super-btn');
     actionButtons.forEach(button => {
         button.addEventListener('click', function() {
             showLoading(this);
@@ -427,6 +466,34 @@ document.addEventListener('DOMContentLoaded', function() {
     var lang = detectLanguage();
     setLanguage(lang);
     updateLangDropdownUI(lang);
+
+    // Billing Toggle Functionality
+    const billingToggle = document.getElementById('billing-toggle');
+    const priceMonthly = document.querySelectorAll('.price-monthly');
+    const priceAnnual = document.querySelectorAll('.price-annual');
+    const discounts = document.querySelectorAll('.discount');
+
+    function updateBillingDisplay() {
+        const isAnnual = billingToggle.checked;
+        
+        priceMonthly.forEach(el => {
+            el.classList.toggle('active', !isAnnual);
+        });
+        
+        priceAnnual.forEach(el => {
+            el.classList.toggle('active', isAnnual);
+        });
+        
+        discounts.forEach(el => {
+            el.style.display = isAnnual ? 'inline-block' : 'none';
+        });
+    }
+
+    // Initialize billing display
+    updateBillingDisplay();
+
+    // Add event listener to toggle
+    billingToggle.addEventListener('change', updateBillingDisplay);
 
     // Alternar header mobile ao rolar
     function handleMobileHeader() {

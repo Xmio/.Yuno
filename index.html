@@ -178,24 +178,82 @@
     <section class="pricing">
         <div class="container">
             <h2 class="section-title" id="pricing-title">Comece sua jornada de descobertas</h2>
-            <div class="pricing-card animate-in">
-                <div class="pricing-header">
-                    <h3 class="pricing-title">Yuno Premium</h3>
-                    <p class="pricing-subtitle">Desbloqueie o potencial ilimitado da curiosidade</p>
+            
+            <!-- Billing Toggle -->
+            <div class="billing-toggle">
+                <span id="billing-monthly">Mensal</span>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="billing-toggle" checked>
+                    <label for="billing-toggle"></label>
                 </div>
-                <div class="pricing-options">
-                    <div class="pricing-option">
-                        <span class="price">$11.99</span>
-                        <span class="period">/mês</span>
+                <span id="billing-annual">Anual</span>
+            </div>
+
+            <!-- Pricing Cards -->
+            <div class="pricing-grid">
+                <!-- Plano Essencial -->
+                <div class="pricing-card animate-in">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title" id="plan-essential-title">Essencial</h3>
+                        <p class="pricing-subtitle" id="plan-essential-subtitle">Para crianças descobrindo o mundo</p>
+                        <div class="pricing-questions" id="plan-essential-questions">60 perguntas/mês</div>
                     </div>
-                    <div class="pricing-option featured">
-                        <span class="price">$99.99</span>
-                        <span class="period">/ano</span>
-                        <span class="discount">Economize 30%!</span>
+                    <div class="pricing-price">
+                        <div class="price-monthly">
+                            <span class="price" id="plan-essential-monthly-price">$11,79</span>
+                            <span class="period" id="plan-essential-monthly-period">/mês</span>
+                        </div>
+                        <div class="price-annual">
+                            <span class="price" id="plan-essential-annual-price">$8,25</span>
+                            <span class="period" id="plan-essential-annual-period">/mês</span>
+                            <span class="discount" id="plan-essential-discount">30% OFF</span>
+                        </div>
                     </div>
+                    <button class="btn-pricing" id="plan-essential-btn">ESCOLHER ESSENCIAL</button>
                 </div>
-                <button class="btn-pricing" id="pricing-btn">COMECE SUA AVENTURA GRATUITA</button>
-                <p class="pricing-note" id="pricing-note">7 dias grátis, depois $99.99/ano</p>
+
+                <!-- Plano Explorador (Recomendado) -->
+                <div class="pricing-card featured animate-in">
+                    <div class="pricing-badge" id="pricing-recommended">Recomendado</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-title" id="plan-explorer-title">Explorador</h3>
+                        <p class="pricing-subtitle" id="plan-explorer-subtitle">Para crianças muito curiosas</p>
+                        <div class="pricing-questions" id="plan-explorer-questions">120 perguntas/mês</div>
+                    </div>
+                    <div class="pricing-price">
+                        <div class="price-monthly">
+                            <span class="price" id="plan-explorer-monthly-price">$19,90</span>
+                            <span class="period" id="plan-explorer-monthly-period">/mês</span>
+                        </div>
+                        <div class="price-annual">
+                            <span class="price" id="plan-explorer-annual-price">$13,25</span>
+                            <span class="period" id="plan-explorer-annual-period">/mês</span>
+                            <span class="discount" id="plan-explorer-discount">~33% OFF</span>
+                        </div>
+                    </div>
+                    <button class="btn-pricing" id="plan-explorer-btn">ESCOLHER EXPLORADOR</button>
+                </div>
+
+                <!-- Plano Super Curioso -->
+                <div class="pricing-card animate-in">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title" id="plan-super-title">Super Curioso</h3>
+                        <p class="pricing-subtitle" id="plan-super-subtitle">Para crianças super curiosas</p>
+                        <div class="pricing-questions" id="plan-super-questions">240 perguntas/mês</div>
+                    </div>
+                    <div class="pricing-price">
+                        <div class="price-monthly">
+                            <span class="price" id="plan-super-monthly-price">$29,90</span>
+                            <span class="period" id="plan-super-monthly-period">/mês</span>
+                        </div>
+                        <div class="price-annual">
+                            <span class="price" id="plan-super-annual-price">$19,92</span>
+                            <span class="period" id="plan-super-annual-period">/mês</span>
+                            <span class="discount" id="plan-super-discount">~33% OFF</span>
+                        </div>
+                    </div>
+                    <button class="btn-pricing" id="plan-super-btn">ESCOLHER SUPER CURIOSO</button>
+                </div>
             </div>
         </div>
     </section>
