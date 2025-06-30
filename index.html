@@ -175,7 +175,7 @@
     </section>
 
     <!-- Pricing Section -->
-    <section class="pricing">
+    <section class="pricing" id="pricing-section">
         <div class="container">
             <h2 class="section-title" id="pricing-title">Comece sua jornada de descobertas</h2>
             
@@ -191,8 +191,31 @@
 
             <!-- Pricing Cards -->
             <div class="pricing-grid">
+                <!-- Plano Gratuito -->
+                <div class="pricing-card free animate-in">
+                    <div class="pricing-header">
+                        <h3 class="pricing-title" id="plan-free-title">Gratuito</h3>
+                        <p class="pricing-subtitle" id="plan-free-subtitle">Para começar a explorar</p>
+                        <div class="pricing-questions" id="plan-free-questions">6 perguntas</div>
+                    </div>
+                    <div class="pricing-price">
+                        <div class="price-free">
+                            <span class="price" id="plan-free-price">Grátis</span>
+                        </div>
+                    </div>
+                    <div class="pricing-benefits">
+                        <ul class="benefits-list">
+                            <li id="plan-free-benefit-1">Uso por voz e imagem</li>
+                            <li id="plan-free-benefit-2">Multilíngue (EN, ES, PT)</li>
+                            <li id="plan-free-benefit-3">IA básica</li>
+                        </ul>
+                    </div>
+                    <button class="btn-pricing btn-pricing-free" id="plan-free-btn">COMEÇAR GRÁTIS</button>
+                </div>
+
                 <!-- Plano Essencial -->
                 <div class="pricing-card animate-in">
+                    <div class="discount-badge" id="plan-essential-discount-badge">30% OFF</div>
                     <div class="pricing-header">
                         <h3 class="pricing-title" id="plan-essential-title">Essencial</h3>
                         <p class="pricing-subtitle" id="plan-essential-subtitle">Para crianças descobrindo o mundo</p>
@@ -200,14 +223,22 @@
                     </div>
                     <div class="pricing-price">
                         <div class="price-monthly">
-                            <span class="price" id="plan-essential-monthly-price">$11,79</span>
+                            <span class="price" id="plan-essential-monthly-price">US$ 11,90</span>
                             <span class="period" id="plan-essential-monthly-period">/mês</span>
                         </div>
                         <div class="price-annual">
-                            <span class="price" id="plan-essential-annual-price">$8,25</span>
+                            <span class="price" id="plan-essential-annual-price">US$ 8,25</span>
                             <span class="period" id="plan-essential-annual-period">/mês</span>
-                            <span class="discount" id="plan-essential-discount">30% OFF</span>
+                            <div class="annual-total" id="plan-essential-annual-total">US$ 99,00/ano</div>
                         </div>
+                    </div>
+                    <div class="pricing-benefits">
+                        <ul class="benefits-list">
+                            <li id="plan-essential-benefit-1">Uso por voz e imagem</li>
+                            <li id="plan-essential-benefit-2">Multilíngue (EN, ES, PT)</li>
+                            <li id="plan-essential-benefit-3">Widget do Yuno</li>
+                            <li id="plan-essential-benefit-4">IA básica</li>
+                        </ul>
                     </div>
                     <button class="btn-pricing" id="plan-essential-btn">ESCOLHER ESSENCIAL</button>
                 </div>
@@ -215,6 +246,7 @@
                 <!-- Plano Explorador (Recomendado) -->
                 <div class="pricing-card featured animate-in">
                     <div class="pricing-badge" id="pricing-recommended">Recomendado</div>
+                    <div class="discount-badge" id="plan-explorer-discount-badge">33% OFF</div>
                     <div class="pricing-header">
                         <h3 class="pricing-title" id="plan-explorer-title">Explorador</h3>
                         <p class="pricing-subtitle" id="plan-explorer-subtitle">Para crianças muito curiosas</p>
@@ -222,35 +254,53 @@
                     </div>
                     <div class="pricing-price">
                         <div class="price-monthly">
-                            <span class="price" id="plan-explorer-monthly-price">$19,90</span>
+                            <span class="price" id="plan-explorer-monthly-price">US$ 19,90</span>
                             <span class="period" id="plan-explorer-monthly-period">/mês</span>
                         </div>
                         <div class="price-annual">
-                            <span class="price" id="plan-explorer-annual-price">$13,25</span>
+                            <span class="price" id="plan-explorer-annual-price">US$ 13,25</span>
                             <span class="period" id="plan-explorer-annual-period">/mês</span>
-                            <span class="discount" id="plan-explorer-discount">~33% OFF</span>
+                            <div class="annual-total" id="plan-explorer-annual-total">US$ 159,00/ano</div>
                         </div>
+                    </div>
+                    <div class="pricing-benefits">
+                        <ul class="benefits-list">
+                            <li id="plan-explorer-benefit-1">Uso por voz e imagem</li>
+                            <li id="plan-explorer-benefit-2">Multilíngue (EN, ES, PT)</li>
+                            <li id="plan-explorer-benefit-3">Widget do Yuno</li>
+                            <li id="plan-explorer-benefit-4">IA avançada</li>
+                        </ul>
                     </div>
                     <button class="btn-pricing" id="plan-explorer-btn">ESCOLHER EXPLORADOR</button>
                 </div>
 
                 <!-- Plano Super Curioso -->
                 <div class="pricing-card animate-in">
+                    <div class="discount-badge" id="plan-super-discount-badge">39% OFF</div>
                     <div class="pricing-header">
                         <h3 class="pricing-title" id="plan-super-title">Super Curioso</h3>
                         <p class="pricing-subtitle" id="plan-super-subtitle">Para crianças super curiosas</p>
-                        <div class="pricing-questions" id="plan-super-questions">240 perguntas/mês</div>
+                        <div class="pricing-questions" id="plan-super-questions">360 perguntas/mês</div>
                     </div>
                     <div class="pricing-price">
                         <div class="price-monthly">
-                            <span class="price" id="plan-super-monthly-price">$29,90</span>
+                            <span class="price" id="plan-super-monthly-price">US$ 44,90</span>
                             <span class="period" id="plan-super-monthly-period">/mês</span>
                         </div>
                         <div class="price-annual">
-                            <span class="price" id="plan-super-annual-price">$19,92</span>
+                            <span class="price" id="plan-super-annual-price">US$ 27,42</span>
                             <span class="period" id="plan-super-annual-period">/mês</span>
-                            <span class="discount" id="plan-super-discount">~33% OFF</span>
+                            <div class="annual-total" id="plan-super-annual-total">US$ 329,00/ano</div>
                         </div>
+                    </div>
+                    <div class="pricing-benefits">
+                        <ul class="benefits-list">
+                            <li id="plan-super-benefit-1">Uso por voz e imagem</li>
+                            <li id="plan-super-benefit-2">Multilíngue (EN, ES, PT)</li>
+                            <li id="plan-super-benefit-3">Widget do Yuno</li>
+                            <li id="plan-super-benefit-4">IA avançada</li>
+                            <li id="plan-super-benefit-5">Insights para os pais</li>
+                        </ul>
                     </div>
                     <button class="btn-pricing" id="plan-super-btn">ESCOLHER SUPER CURIOSO</button>
                 </div>
@@ -273,6 +323,26 @@
             </div>
         </div>
     </footer>
+
+    <!-- Modal de Download do App -->
+    <div id="download-app-modal" class="modal-overlay" style="display:none;">
+      <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <button class="modal-close" id="modal-close-btn" aria-label="Fechar">&times;</button>
+        <div class="modal-icon">
+          <img src="./assets/images/curioso_mascot.png" alt="Mascote Yuno" style="width:48px;height:48px;">
+        </div>
+        <h2 class="modal-title" id="modal-title">Continue no app Yuno</h2>
+        <p class="modal-message" id="modal-message">Para acessar sua conta, baixe o app Yuno gratuitamente:</p>
+        <div class="modal-store-buttons">
+          <a href="#" id="appstore-btn" target="_blank" rel="noopener" aria-label="App Store">
+            <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" style="height:40px;">
+          </a>
+          <a href="#" id="googleplay-btn" target="_blank" rel="noopener" aria-label="Google Play">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" style="height:40px;">
+          </a>
+        </div>
+      </div>
+    </div>
 
     <script src="./assets/js/script.js"></script>
 </body>

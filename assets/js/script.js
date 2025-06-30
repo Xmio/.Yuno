@@ -43,7 +43,14 @@ const translations = {
         'plan-explorer-questions': '120 perguntas/mês',
         'plan-super-title': 'Super Curioso',
         'plan-super-subtitle': 'Para crianças super curiosas',
-        'plan-super-questions': '240 perguntas/mês',
+        'plan-super-questions': '360 perguntas/mês',
+        'plan-free-title': 'Gratuito',
+        'plan-free-subtitle': 'Para começar a explorar',
+        'plan-free-questions': '6 perguntas',
+        'plan-free-price': 'Grátis',
+        'plan-essential-annual-total': 'US$ 99,00/ano',
+        'plan-explorer-annual-total': 'US$ 159,00/ano',
+        'plan-super-annual-total': 'US$ 329,00/ano',
         'plan-essential-monthly-period': '/mês',
         'plan-essential-annual-period': '/mês',
         'plan-explorer-monthly-period': '/mês',
@@ -51,15 +58,23 @@ const translations = {
         'plan-super-monthly-period': '/mês',
         'plan-super-annual-period': '/mês',
         'plan-essential-discount': '30% OFF',
-        'plan-explorer-discount': '~33% OFF',
-        'plan-super-discount': '~33% OFF',
+        'plan-explorer-discount': '33% OFF',
+        'plan-super-discount': '39% OFF',
         'plan-essential-btn': 'ESCOLHER ESSENCIAL',
         'plan-explorer-btn': 'ESCOLHER EXPLORADOR',
         'plan-super-btn': 'ESCOLHER SUPER CURIOSO',
-        'welcome-notification': '🎉 Bem-vindo ao Yuno! Prepare-se para uma jornada incrível de descobertas!',
+        'plan-free-btn': 'COMEÇAR GRÁTIS',
         'footer-brand-name': 'Yuno',
         'footer-text': 'Transformando curiosidade em conhecimento, uma pergunta de cada vez.',
-        'footer-copyright': '© 2025 Yuno. Todos os direitos reservados.'
+        'footer-copyright': '© 2025 Yuno. Todos os direitos reservados.',
+        'modal-title': 'Continue no app Yuno',
+        'modal-message': 'Para acessar sua conta, baixe o app Yuno gratuitamente:',
+        'benefit-voice-image': 'Uso por voz e imagem',
+        'benefit-multilingual': 'Multilíngue (EN, ES, PT)',
+        'benefit-widget': 'Widget do Yuno',
+        'benefit-basic-ai': 'IA básica',
+        'benefit-advanced-ai': 'IA avançada',
+        'benefit-parent-insights': 'Insights para os pais'
     },
     en: {
         'brand-name': 'Yuno',
@@ -98,7 +113,14 @@ const translations = {
         'plan-explorer-questions': '120 questions/month',
         'plan-super-title': 'Super Curious',
         'plan-super-subtitle': 'For super curious children',
-        'plan-super-questions': '240 questions/month',
+        'plan-super-questions': '360 questions/month',
+        'plan-free-title': 'Free',
+        'plan-free-subtitle': 'To start exploring',
+        'plan-free-questions': '6 questions',
+        'plan-free-price': 'Free',
+        'plan-essential-annual-total': 'US$ 99.00/year',
+        'plan-explorer-annual-total': 'US$ 159.00/year',
+        'plan-super-annual-total': 'US$ 329.00/year',
         'plan-essential-monthly-period': '/month',
         'plan-essential-annual-period': '/month',
         'plan-explorer-monthly-period': '/month',
@@ -106,15 +128,23 @@ const translations = {
         'plan-super-monthly-period': '/month',
         'plan-super-annual-period': '/month',
         'plan-essential-discount': '30% OFF',
-        'plan-explorer-discount': '~33% OFF',
-        'plan-super-discount': '~33% OFF',
+        'plan-explorer-discount': '33% OFF',
+        'plan-super-discount': '39% OFF',
         'plan-essential-btn': 'CHOOSE ESSENTIAL',
         'plan-explorer-btn': 'CHOOSE EXPLORER',
         'plan-super-btn': 'CHOOSE SUPER CURIOUS',
-        'welcome-notification': '🎉 Welcome to Yuno! Get ready for an incredible journey of discoveries!',
+        'plan-free-btn': 'START FREE',
         'footer-brand-name': 'Yuno',
         'footer-text': 'Turning curiosity into knowledge, one question at a time.',
-        'footer-copyright': '© 2025 Yuno. All rights reserved.'
+        'footer-copyright': '© 2025 Yuno. All rights reserved.',
+        'modal-title': 'Continue in the Yuno app',
+        'modal-message': 'To access your account, download the free Yuno app:',
+        'benefit-voice-image': 'Voice and Image Usage',
+        'benefit-multilingual': 'Multilingual (EN, ES, PT)',
+        'benefit-widget': 'Yuno Widget',
+        'benefit-basic-ai': 'Basic AI',
+        'benefit-advanced-ai': 'Advanced AI',
+        'benefit-parent-insights': 'Parent Insights'
     },
     es: {
         'brand-name': 'Yuno',
@@ -153,7 +183,14 @@ const translations = {
         'plan-explorer-questions': '120 preguntas/mes',
         'plan-super-title': 'Super Curioso',
         'plan-super-subtitle': 'Para niños super curiosos',
-        'plan-super-questions': '240 preguntas/mes',
+        'plan-super-questions': '360 preguntas/mes',
+        'plan-free-title': 'Gratis',
+        'plan-free-subtitle': 'Para empezar a explorar',
+        'plan-free-questions': '6 preguntas',
+        'plan-free-price': 'Gratis',
+        'plan-essential-annual-total': 'US$ 99,00/año',
+        'plan-explorer-annual-total': 'US$ 159,00/año',
+        'plan-super-annual-total': 'US$ 329,00/año',
         'plan-essential-monthly-period': '/mes',
         'plan-essential-annual-period': '/mes',
         'plan-explorer-monthly-period': '/mes',
@@ -161,15 +198,23 @@ const translations = {
         'plan-super-monthly-period': '/mes',
         'plan-super-annual-period': '/mes',
         'plan-essential-discount': '30% OFF',
-        'plan-explorer-discount': '~33% OFF',
-        'plan-super-discount': '~33% OFF',
-        'plan-essential-btn': 'ELEGIR ESENCIAL',
-        'plan-explorer-btn': 'ELEGIR EXPLORADOR',
-        'plan-super-btn': 'ELEGIR SUPER CURIOSO',
-        'welcome-notification': '🎉 ¡Bienvenido a Yuno! ¡Prepárate para un increíble viaje de descubrimientos!',
+        'plan-explorer-discount': '33% OFF',
+        'plan-super-discount': '39% OFF',
+        'plan-essential-btn': 'ESCOGER ESENCIAL',
+        'plan-explorer-btn': 'ESCOGER EXPLORADOR',
+        'plan-super-btn': 'ESCOGER SUPER CURIOSO',
+        'plan-free-btn': 'EMPEZAR GRATIS',
         'footer-brand-name': 'Yuno',
         'footer-text': 'Transformando la curiosidad en conocimiento, una pregunta a la vez.',
-        'footer-copyright': '© 2025 Yuno. Todos los derechos reservados.'
+        'footer-copyright': '© 2025 Yuno. Todos los derechos reservados.',
+        'modal-title': 'Continúa en la app Yuno',
+        'modal-message': 'Para acceder a tu cuenta, descarga la app Yuno gratis:',
+        'benefit-voice-image': 'Uso por voz y imagen',
+        'benefit-multilingual': 'Multilíngue (EN, ES, PT)',
+        'benefit-widget': 'Widget del Yuno',
+        'benefit-basic-ai': 'IA básica',
+        'benefit-advanced-ai': 'IA avanzada',
+        'benefit-parent-insights': 'Insights para los padres'
     }
 };
 
@@ -212,6 +257,45 @@ function setLanguage(lang) {
             }
         }, 500);
     }
+
+    // Atualizar modal se estiver aberto
+    document.getElementById('modal-title').textContent = translations[lang]['modal-title'];
+    document.getElementById('modal-message').textContent = translations[lang]['modal-message'];
+    
+    // Atualizar benefícios dos planos
+    const benefitMappings = {
+        // Plano Gratuito
+        'plan-free-benefit-1': 'benefit-voice-image',
+        'plan-free-benefit-2': 'benefit-multilingual',
+        'plan-free-benefit-3': 'benefit-basic-ai',
+        
+        // Plano Essencial
+        'plan-essential-benefit-1': 'benefit-voice-image',
+        'plan-essential-benefit-2': 'benefit-multilingual',
+        'plan-essential-benefit-3': 'benefit-widget',
+        'plan-essential-benefit-4': 'benefit-basic-ai',
+        
+        // Plano Explorador
+        'plan-explorer-benefit-1': 'benefit-voice-image',
+        'plan-explorer-benefit-2': 'benefit-multilingual',
+        'plan-explorer-benefit-3': 'benefit-widget',
+        'plan-explorer-benefit-4': 'benefit-advanced-ai',
+        
+        // Plano Super Curioso
+        'plan-super-benefit-1': 'benefit-voice-image',
+        'plan-super-benefit-2': 'benefit-multilingual',
+        'plan-super-benefit-3': 'benefit-widget',
+        'plan-super-benefit-4': 'benefit-advanced-ai',
+        'plan-super-benefit-5': 'benefit-parent-insights'
+    };
+    
+    Object.keys(benefitMappings).forEach(function(benefitId) {
+        const element = document.getElementById(benefitId);
+        const translationKey = benefitMappings[benefitId];
+        if (element && translations[lang][translationKey]) {
+            element.textContent = translations[lang][translationKey];
+        }
+    });
 }
 
 function detectLanguage() {
@@ -287,14 +371,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 this.style.transform = 'scale(1)';
             }, 150);
             
-            // Criar efeito de confete
-            createConfetti();
-            
-            // Simular ação (aqui você integraria com um sistema real)
-            setTimeout(() => {
-                const currentLang = localStorage.getItem('yuno-lang') || 'pt';
-                showNotification(translations[currentLang]['welcome-notification'], 'success');
-            }, 300);
+            // Scroll to pricing section
+            scrollToPricing();
         });
     });
 
@@ -389,41 +467,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         updateCounter();
-    }
-
-    // Função para criar confete
-    function createConfetti() {
-        const colors = ['#58cc02', '#1cb0f6', '#26b547', '#ff4b4b', '#ce82ff'];
-        const confettiCount = 50;
-        
-        for (let i = 0; i < confettiCount; i++) {
-            const confetti = document.createElement('div');
-            confetti.style.cssText = `
-                position: fixed;
-                width: 10px;
-                height: 10px;
-                background: ${colors[Math.floor(Math.random() * colors.length)]};
-                left: ${Math.random() * 100}vw;
-                top: -10px;
-                z-index: 10000;
-                pointer-events: none;
-                border-radius: 50%;
-            `;
-            
-            document.body.appendChild(confetti);
-            
-            const animation = confetti.animate([
-                { transform: 'translateY(0px) rotate(0deg)', opacity: 1 },
-                { transform: `translateY(${window.innerHeight + 100}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
-            ], {
-                duration: Math.random() * 3000 + 2000,
-                easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
-            });
-            
-            animation.onfinish = () => {
-                confetti.remove();
-            };
-        }
     }
 
     // Sistema de notificações
@@ -554,6 +597,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const priceMonthly = document.querySelectorAll('.price-monthly');
     const priceAnnual = document.querySelectorAll('.price-annual');
     const discounts = document.querySelectorAll('.discount');
+    const discountBadges = document.querySelectorAll('.discount-badge');
 
     function updateBillingDisplay() {
         const isAnnual = billingToggle.checked;
@@ -568,6 +612,11 @@ document.addEventListener('DOMContentLoaded', function() {
         
         discounts.forEach(el => {
             el.style.display = isAnnual ? 'inline-block' : 'none';
+        });
+        
+        // Mostrar/ocultar badges de desconto baseado no billing
+        discountBadges.forEach(badge => {
+            badge.style.display = isAnnual ? 'block' : 'none';
         });
     }
 
@@ -601,6 +650,55 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', handleMobileHeader);
     window.addEventListener('resize', handleMobileHeader);
     document.addEventListener('DOMContentLoaded', handleMobileHeader);
+
+    // Modal de Download do App
+    const modal = document.getElementById('download-app-modal');
+    const closeModalBtn = document.getElementById('modal-close-btn');
+    const appStoreBtn = document.getElementById('appstore-btn');
+    const googlePlayBtn = document.getElementById('googleplay-btn');
+    // Coloque aqui os links reais das lojas quando disponíveis
+    appStoreBtn.href = '#'; // Exemplo: 'https://apps.apple.com/app/idXXXXXXXXX'
+    googlePlayBtn.href = '#'; // Exemplo: 'https://play.google.com/store/apps/details?id=XXXXXXXXX'
+
+    function openModal() {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        closeModalBtn.focus();
+    }
+    function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+    closeModalBtn.addEventListener('click', closeModal);
+    modal.addEventListener('mousedown', function(e) {
+        if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+        if (modal.style.display === 'flex' && e.key === 'Escape') closeModal();
+    });
+    // Abrir modal ao clicar em qualquer botão 'Já tenho uma conta'
+    document.querySelectorAll('#hero-login-btn, #login-btn, .btn-hero-secondary, #plan-free-btn').forEach(btn => {
+        btn && btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            openModal();
+        });
+    });
+
+    // Scroll to pricing section on 'Começar' buttons
+    function scrollToPricing() {
+        const section = document.getElementById('pricing-section');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
+    const startBtns = [
+        document.getElementById('start-btn'),
+        document.getElementById('mobile-header-start-btn'),
+        document.getElementById('hero-start-btn')
+    ];
+    startBtns.forEach(btn => {
+        if (btn) btn.addEventListener('click', scrollToPricing);
+    });
 
 });
 

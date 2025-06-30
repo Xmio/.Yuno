@@ -118,11 +118,16 @@ body {
 .btn-pricing {
     background: #26b547;
     color: white;
-    padding: 16px 32px;
-    font-size: 16px;
-    width: 100%;
-    margin-top: 20px;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 600;
     border: 2px solid #26b547;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    min-width: 140px;
+    transition: all 0.3s ease;
+    margin-top: auto;
 }
 
 .btn-pricing:hover {
@@ -487,8 +492,8 @@ body {
 /* Pricing Grid */
 .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
     margin-bottom: 40px;
 }
 
@@ -496,16 +501,31 @@ body {
 .pricing-card {
     background: white;
     border-radius: 20px;
-    padding: 40px 30px;
+    padding: 30px 20px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     position: relative;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.pricing-card.free {
+    border: 2px solid #e5e5e5;
+    background: #fafafa;
+}
+
+.pricing-card.free:hover {
+    border-color: #1cb0f6;
+    background: #f0f8ff;
 }
 
 .pricing-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    border-color: #26b547;
+    background: #f0fff4;
 }
 
 .pricing-card.featured {
@@ -515,6 +535,8 @@ body {
 
 .pricing-card.featured:hover {
     transform: scale(1.05) translateY(-5px);
+    border-color: #26b547;
+    background: #f0fff4;
 }
 
 /* Pricing Badge */
@@ -532,12 +554,28 @@ body {
     z-index: 1;
 }
 
+/* Discount Badge */
+.discount-badge {
+    position: absolute;
+    top: 15px;
+    right: -10px;
+    background: #26b547;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 2;
+    transform: rotate(15deg);
+    box-shadow: 0 2px 8px rgba(38, 181, 71, 0.3);
+}
+
 .pricing-header {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
 }
 
 .pricing-title {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 600;
     color: #4b4b4b;
     margin-bottom: 10px;
@@ -545,7 +583,7 @@ body {
 
 .pricing-subtitle {
     color: #777;
-    font-size: 16px;
+    font-size: 14px;
     margin-bottom: 15px;
 }
 
@@ -559,9 +597,56 @@ body {
     display: inline-block;
 }
 
+.pricing-card.free .pricing-questions {
+    background: #e5f3ff;
+    color: #1cb0f6;
+}
+
 /* Pricing Price */
 .pricing-price {
-    margin-bottom: 30px;
+    margin-bottom: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Pricing Benefits */
+.pricing-benefits {
+    margin-bottom: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.benefits-list li {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 8px;
+    line-height: 1.4;
+    position: relative;
+    padding-left: 16px;
+}
+
+.benefits-list li:before {
+    content: "•";
+    color: #26b547;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.benefits-list li:last-child {
+    margin-bottom: 0;
 }
 
 .price-monthly, .price-annual {
@@ -572,10 +657,20 @@ body {
     display: block;
 }
 
+.price-free {
+    display: block;
+}
+
 .price {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 400;
     color: #4b4b4b;
+}
+
+.pricing-card.free .price {
+    color: #1cb0f6;
+    font-weight: 600;
+    font-size: 28px;
 }
 
 .period {
@@ -585,22 +680,29 @@ body {
 }
 
 .discount {
-    display: block;
-    background: #26b547;
-    color: white;
-    padding: 4px 12px;
-    border-radius: 15px;
-    font-size: 12px;
-    font-weight: 600;
-    margin-top: 8px;
-    display: inline-block;
+    display: none;
 }
 
-.pricing-note {
-    text-align: center;
-    color: #777;
+.annual-total {
     font-size: 14px;
-    margin-top: 20px;
+    color: #777;
+    font-weight: 400;
+    margin-top: 8px;
+    opacity: 0.8;
+}
+
+/* Free plan button */
+.btn-pricing-free {
+    background: #1cb0f6;
+    color: white;
+    border: 2px solid #1cb0f6;
+    margin-top: auto;
+}
+
+.btn-pricing-free:hover {
+    background: #0d9ee6;
+    border-color: #0d9ee6;
+    transform: translateY(-2px);
 }
 
 /* Footer */
@@ -900,4 +1002,83 @@ body {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
+
+/* Modal de Download do App */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 10010;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+}
+.modal-content {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  padding: 32px 24px 24px 24px;
+  max-width: 95vw;
+  width: 370px;
+  text-align: center;
+  position: relative;
+  animation: modalIn 0.25s cubic-bezier(.4,1.4,.6,1) both;
+}
+@keyframes modalIn {
+  from { transform: translateY(40px) scale(0.98); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.modal-close:hover { color: #26b547; }
+.modal-icon img {
+  margin-bottom: 8px;
+  border-radius: 50%;
+  background: #f6f6f6;
+  box-shadow: 0 2px 8px rgba(38,181,71,0.08);
+}
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: 8px;
+}
+.modal-message {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 20px;
+}
+.modal-store-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  align-items: center;
+}
+.modal-store-buttons a img {
+  height: 40px;
+  transition: transform 0.15s;
+}
+.modal-store-buttons a:hover img {
+  transform: scale(1.06);
+}
+@media (max-width: 480px) {
+  .modal-content {
+    width: 95vw;
+    padding: 20px 8px 16px 8px;
+  }
+  .modal-title { font-size: 1.1rem; }
+  .modal-message { font-size: 0.97rem; }
+  .modal-store-buttons a img { height: 34px; }
+}
+/* Fim do modal */
 
